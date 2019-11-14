@@ -20,3 +20,4 @@ fi
 ```
 
 This will invoke a prompt everytime you start a terminal (only) when your wallpaper if not up to date.
+Note that the script `NASA_APOD_WP.py` has to be in your `$PATH` in order for this to work. Alternatively, you can use absolute path explicitly.
