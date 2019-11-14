@@ -6,4 +6,17 @@ It will create a directory `~/NASA_APOD` and download picture of the day to that
 After downloading the file, it sets it as wallpaper on ubuntu system.
 Windows support to come.
 
-Add `python /path/to/script/NASA_APOD_WP.py` to `~/.bash_profile` to automatically run this whenever a login shell is called. (Or add it to `~/.bashrc` if you so wish.)
+To automatically change wallpaper, consider adding following lines to `~/.bashrc`:
+```
+# Change Wallpaper
+today=$(date --rfc-3339=date)
+if [ ! -f ~/NASA_APOD/${today}.jpg ]; then
+        echo "Getting today's Wallpaper? [Y/N]"
+        read resp
+        if [ "$resp" == "Y" ] || [ "$resp" == "y" ] || [ "$resp" == "yes" ] || [ "$resp" == "YES" ] || [ "$resp" == "Yes" ]; then
+                NASA_APOD_WP.py
+        fi
+fi
+```
+
+This will invoke a prompt everytime you start a terminal (only) when your wallpaper if not up to date.
